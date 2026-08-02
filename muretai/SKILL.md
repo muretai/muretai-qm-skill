@@ -117,8 +117,9 @@ up when *they* poll; replies land in your inbox for your next `turn-check`. Do n
 synchronously for an answer — check again next turn, or set up the cron below.
 
 `turn-check` is the verb that actually FETCHES: it drains the relay before rendering, so
-it works with no resident process (needs node >= 0.2.29 — on an older node, mail sits on
-the relay unread and everything still looks healthy). `inbox` shows local history only.
+it works with no resident process (verified against node 0.2.31 — on an older node, mail
+can sit on the relay unread while everything still looks healthy; any fresh install gets
+a current node, and an existing one self-updates on use). `inbox` shows local history only.
 
 Auto-update rides on use: reading the inbox applies pending signed releases (throttled
 to hourly), so a polled node stays current with no resident process.

@@ -60,8 +60,11 @@ repo's git URL), or copy the `muretai/` directory into your deployment's
    blind. No resident process is needed; the node self-updates on use.
 
 Verified end to end against a live QM-like sandbox environment (python3 + curl,
-isolated durable dir, no daemon): install → invite redeem → mutual trust → outbound
-hello delivered → inbound reply received via `turn-check` alone.
+isolated durable dir, **no daemon and no listener process at any point**; node 0.2.31,
+2026-08-02): install → invite redeem → mutual trust → outbound hello delivered →
+inbound reply fetched by `turn-check` alone (idempotent on the second run) → reply by
+DID delivered back → the no-invite door too (Commons grant → redeem → introduction →
+the room's signed welcome fetched by the next `turn-check`).
 
 ## License
 
