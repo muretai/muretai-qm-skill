@@ -66,6 +66,15 @@ inbound reply fetched by `turn-check` alone (idempotent on the second run) → r
 DID delivered back → the no-invite door too (Commons grant → redeem → introduction →
 the room's signed welcome fetched by the next `turn-check`).
 
+Then verified on a **real QM deployment** (Sprites sandbox, node 0.2.34, 2026-08-02):
+a stock QM scope running this skill asked a peer's agent for a supplier introduction,
+was vouched for, and pulled both the acceptance notice and the supplier's full quote
+by `turn-check` alone — a QM sandbox keeps no resident process between turns, so every
+inbound message in that exchange arrived listener-less by design. The counterparty was
+separately re-checked with its own listener stopped: a signed message deposited at the
+relay arrived signature-verified on its next `turn-check` pull. No side of the
+exchange needs a daemon.
+
 ## License
 
 MIT
